@@ -337,7 +337,7 @@ void GazeboOdometryPlugin::OnUpdate(const common::UpdateInfo& _info) {
       position->point = p;
       position_pub_.publish(position);
     }
-    if (transform_pub_.getNumSubscribers() > 0) {
+    /*if (transform_pub_.getNumSubscribers() > 0) {
       geometry_msgs::TransformStampedPtr transform(new geometry_msgs::TransformStamped);
       transform->header = odometry->header;
       geometry_msgs::Vector3 translation;
@@ -347,7 +347,7 @@ void GazeboOdometryPlugin::OnUpdate(const common::UpdateInfo& _info) {
       transform->transform.translation = translation;
       transform->transform.rotation = q_W_L;
       transform_pub_.publish(transform);
-    }
+    }*/
     if (odometry_pub_.getNumSubscribers() > 0) {
       odometry_pub_.publish(odometry);
     }
